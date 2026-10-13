@@ -47,3 +47,16 @@ htmlcov/
 .vscode/
 .idea/
 *.swp
+*.swo
+
+# Linter & Type checker caches
+.ruff_cache/
+.mypy_cache/
+
+# Coverage files
+coverage.xml
+*.lcov
+
+# OS generated files
+.DS_Store
+Thumbs.db

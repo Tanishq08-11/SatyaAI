@@ -1,5 +1,11 @@
 # SATYA AI — Phase 2: TruthGraph Evidence Verification Engine
 
+[![CI](https://github.com/Tanishq08-11/SatyaAI/actions/workflows/ci.yml/badge.svg)](https://github.com/Tanishq08-11/SatyaAI/actions/workflows/ci.yml)
+[![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.11%20%7C%203.12-blue)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.115+-009688.svg?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Code Style: Ruff](https://img.shields.io/badge/code%20style-ruff-000000.svg)](https://github.com/astral-sh/ruff)
+
 Evidence-first WhatsApp fact-checking backend built with FastAPI, Pydantic, SQLAlchemy, and SQLite.
 
 SATYA AI is designed to combat viral misinformation on messaging platforms with strict adherence to evidence-based verification. In accordance with its core design principles:
@@ -14,11 +20,21 @@ SATYA AI is designed to combat viral misinformation on messaging platforms with 
 
 ```
 satya-ai/
+├── .github/
+│   ├── workflows/
+│   │   └── ci.yml            # Automated CI: Test & Lint suite across Python 3.10-3.12
+│   ├── ISSUE_TEMPLATE/       # Structured Bug Report & Feature Request templates
+│   └── PULL_REQUEST_TEMPLATE.md # Standard PR checklist
 ├── .env.example              # Environment configuration template
 ├── .env                      # Local environment settings
 ├── .gitignore                # Git ignore rules
+├── CODE_OF_CONDUCT.md        # Contributor Covenant Code of Conduct
+├── CONTRIBUTING.md           # Contribution workflow and guidelines
+├── LICENSE                   # MIT License
+├── pyproject.toml            # Project packaging & tooling configuration
 ├── pytest.ini                # Pytest configuration
 ├── requirements.txt          # Pinned dependency requirements
+├── SECURITY.md               # Security vulnerability reporting policy
 ├── README.md                 # Project architecture, commands, and guide
 ├── app/
 │   ├── __init__.py           # Application package & version metadata
@@ -411,4 +427,19 @@ Invoke-RestMethod -Uri "http://127.0.0.1:8000/api/whatsapp/webhook" -Method Post
 | **User does not receive WhatsApp reply** | `WHATSAPP_ACCESS_TOKEN` is expired, or phone number has not opted in (for test accounts). | 1. In Meta Dashboard, generate a fresh token or use a Permanent System User Token.<br>2. Ensure recipient number is added in WhatsApp > API Setup > To. |
 | **Duplicate replies sent to user** | Meta retried webhook because initial response took > 20s. | SATYA AI includes built-in message deduplication (`ProcessedWhatsAppMessage` and memory cache) to prevent re-processing identical message IDs. |
 | **Audio or image messages return guidance** | SATYA AI Phase 3 supports text-based claim verification. | SATYA AI automatically responds with guidance asking users to send claims as text. |
+
+---
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome!
+- Review the [Contributing Guidelines](CONTRIBUTING.md) to get started.
+- Please adhere to our [Code of Conduct](CODE_OF_CONDUCT.md).
+- To report security vulnerabilities, see our [Security Policy](SECURITY.md).
+
+---
+
+## License
+
+Distributed under the MIT License. See [LICENSE](LICENSE) for more information.
 
