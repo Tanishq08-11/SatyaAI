@@ -30,6 +30,15 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Run Pytest Suite
+    - name: Set up environment
       run: |
-        pytest
+        cp .env.example .env
+
+    - name: Run Pytest Suite
+      env:
+        PYTHONPATH: .
+        SEARCH_PROVIDER: mock
+        WHATSAPP_VERIFY_TOKEN: satya_test_verify_token
+        WHATSAPP_APP_SECRET: satya_test_secret_12345
+      run: |
+        python -m pytest

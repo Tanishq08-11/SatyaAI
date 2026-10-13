@@ -10,6 +10,8 @@ from sqlalchemy.pool import StaticPool
 
 # Ensure deterministic mock mode for automated test suite
 os.environ["SEARCH_PROVIDER"] = "mock"
+os.environ["WHATSAPP_VERIFY_TOKEN"] = "satya_test_verify_token"
+os.environ["WHATSAPP_APP_SECRET"] = "satya_test_secret_12345"
 
 from app.config import Settings, get_settings
 get_settings.cache_clear()
@@ -54,6 +56,10 @@ def get_test_settings() -> Settings:
         DATABASE_URL=TEST_DATABASE_URL,
         SEARCH_PROVIDER="mock",
         LLM_PROVIDER="none",
+        WHATSAPP_VERIFY_TOKEN="satya_test_verify_token",
+        WHATSAPP_APP_SECRET="satya_test_secret_12345",
+        WHATSAPP_PHONE_NUMBER_ID="10987654321",
+        WHATSAPP_ACCESS_TOKEN="EAA_TEST_TOKEN_123",
     )
 
 

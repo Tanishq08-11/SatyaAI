@@ -42,14 +42,6 @@ dev = [
     "mypy>=1.10.0",
 ]
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-pythonpath = ["."]
-asyncio_mode = "auto"
-filterwarnings = [
-    "ignore::DeprecationWarning",
-]
-
 [tool.ruff]
 line-length = 100
 target-version = "py310"
